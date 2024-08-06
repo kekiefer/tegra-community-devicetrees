@@ -63,10 +63,8 @@
 	};
 
 	ethernet@2490000 {
-		compatible = "nvidia,tegra194-eqos",
-				     "nvidia,tegra186-eqos";
+		compatible = "nvidia,nveqos";
 		reg = <0x0 0x02490000 0x0 0x10000>;    /* EQOS Base Register */
-#if 0
 		reg-names = "mac";
 		interrupts = 	<0 194 0x4>,	/* common */
 				<0 186 0x4>,	/* tx0 */
@@ -85,23 +83,12 @@
 			 <&bpmp TEGRA194_CLK_AXI_CBB>;
 		clock-names = "pllrefe_vcoout", "eqos_axi", "eqos_rx", "eqos_ptp_ref", "eqos_tx", "axi_cbb";
 		reset-names = "mac";
-#else
-		interrupts = <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>;
-		clocks = <&bpmp TEGRA194_CLK_AXI_CBB>,
-				<&bpmp TEGRA194_CLK_EQOS_AXI>,
-				<&bpmp TEGRA194_CLK_EQOS_RX>,
-				<&bpmp TEGRA194_CLK_EQOS_TX>,
-				<&bpmp TEGRA194_CLK_EQOS_PTP_REF>;
-		clock-names = "master_bus", "slave_bus", "rx", "tx", "ptp_ref";
-		reset-names = "eqos";
-#endif
 		resets = <&bpmp TEGRA194_RESET_EQOS>;
 
 		interconnects = <&mc TEGRA194_MEMORY_CLIENT_EQOSR &emc>,
 			        <&mc TEGRA194_MEMORY_CLIENT_EQOSW &emc>;
 		interconnect-names = "dma-mem", "write";
 
-#if 0
 		nvidia,promisc_mode = <1>;
 		nvidia,num-dma-chans = <4>;
 		nvidia,dma-chans = <0 1 2 3>;
@@ -114,7 +101,6 @@
 		nvidia,pad_calibration = <0x1>;
 		nvidia,tx-queue-prio = <0x0 0x7 0x2 0x3>;
 		iommus = <&smmu TEGRA194_SID_EQOS>;
-		iommu-resv-regions = <0x0 0x0 0x0 0x40000000 0x0 0x60000000 0xffffffff 0xffffffff>;
 		dma-coherent;
 		/* usec value for Rx watchdog interrupt */
 		nvidia,rx_riwt = <256>;
@@ -127,18 +113,8 @@
 		pinctrl-names = "mii_rx_disable", "mii_rx_enable";
 		pinctrl-0 = <&eqos_mii_rx_input_state_disable>;
 		pinctrl-1 = <&eqos_mii_rx_input_state_enable>;
-#else
-		iommus = <&smmu TEGRA194_SID_EQOS>;
-		status = "disabled";
-
-		snps,write-requests = <1>;
-		snps,read-requests = <3>;
-		snps,burst-map = <0x7>;
-		snps,txpbl = <16>;
-		snps,rxpbl = <8>;
-
-		dma-coherent;
-#endif
+		nvidia,dma_rx_ring_sz = <1024>;
+		nvidia,dma_tx_ring_sz = <1024>;
 
 		eqos_cool_dev: eqos-cool-dev {
 			cooling-min-state = <0>;

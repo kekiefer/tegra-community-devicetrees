@@ -43,24 +43,18 @@
 		phy-handle = <&phy>;
 		nvidia,max-platform-mtu = <16383>;
 
-		phy-reset-gpios = <&tegra_main_gpio TEGRA194_MAIN_GPIO(G, 5) 0>;
-
 		mdio {
 			compatible = "nvidia,eqos-mdio";
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			phy: phy@0 {
+			phy: ethernet-phy@0 {
 				reg = <0>;
 				interrupt-parent = <&tegra_main_gpio>;
 				interrupts = <TEGRA194_MAIN_GPIO(G, 4) IRQ_TYPE_LEVEL_LOW>;
 				marvell,copper-mode;
 				/* Setup LED[2] as interrupt pin (active low) */
 				marvell,reg-init = <0x03 0x12 0x7fff 0x880>;
-
-				compatible = "ethernet-phy-ieee802.3-c22";
-				device_type = "ethernet-phy";
-				#phy-cells = <0>;
 			};
 		};
 	};
