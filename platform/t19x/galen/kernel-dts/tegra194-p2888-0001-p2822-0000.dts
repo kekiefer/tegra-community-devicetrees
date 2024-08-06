@@ -21,8 +21,6 @@
 #include "common/tegra194-p2822-camera-modules.dtsi"
 #include "common/tegra194-audio-p2822-0000.dtsi"
 
-#if defined(LINUX_VERSION) && LINUX_VERSION >= 419
-
 / {
 	/* FIXME: K5.4 overrides */
 	bpmp {
@@ -50,5 +48,3 @@
 		status = "okay";
 	};
 };
-
-#endif

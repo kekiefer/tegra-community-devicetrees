@@ -325,9 +325,6 @@
 		dpaux@155F0000 {
 			status = "okay";
 			compatible = "nvidia,tegra194-dpaux3-padctl";
-#if LINUX_VERSION <= 419
-			/delete-property/ power-domains;
-#endif
 			dpaux_default: pinmux@0 {
 				dpaux3_pins {
 					pins = "dpaux3-3";
@@ -348,22 +345,10 @@
 		suspend_state = <0>;
 	};
 
-	efuse@3820000 {
-#if LINUX_VERSION < 419
-		efuse-burn {
-			nvidia,tz = <&pllx>;
-			nvidia,temp-range = <(-19000) 117000>;
-			thermal-zone = <5>;
-		};
-#endif
-	};
-
-#if LINUX_VERSION >= 419
 	efuse-burn {
 		nvidia,tz = <&pllx>;
 		nvidia,temp-range = <(-19000) 117000>;
 	};
-#endif
 
 	tegra_udrm: tegra_udrm {
 		compatible = "nvidia,tegra-udrm";
@@ -386,6 +371,4 @@
 	};
 };
 
-#if LINUX_VERSION >= 414
 #include <tegra194-linux-4.14.dtsi>
-#endif

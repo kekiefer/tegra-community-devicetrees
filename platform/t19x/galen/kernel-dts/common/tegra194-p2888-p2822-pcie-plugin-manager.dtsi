@@ -49,18 +49,6 @@
 			};
 		};
 
-#if LINUX_VERSION < 500
-		fragment-disable-uphy-rx-idle {
-			ids = "<=2822-0000-300";
-			override@0 {
-				target = <&{/hsio_p2u/p2u@03e10000}>;
-				_overlay_ {
-					append-string-property = "nvidia,disable-uphy-rx-idle";
-				};
-			};
-		};
-#endif
-
 		fragment-pcie-c5-rp {
 			odm-anded-override;
 			odm-data = "disable-pcie-c5-endpoint", "enable-nvhs-uphy-pcie-c5";
@@ -76,20 +64,6 @@
 					status = "disabled";
 				};
 			};
-#if LINUX_VERSION < 500
-			override@2 {
-				target = <&{/gpio@c2f0000/pex-refclk-sel-low}>;
-				_overlay_ {
-					status = "okay";
-				};
-			};
-			override@3 {
-				target = <&{/gpio@c2f0000/pex-refclk-sel-high}>;
-				_overlay_ {
-					status = "disabled";
-				};
-			};
-#endif
 		};
 
 		fragment-pcie-c5-ep {
@@ -107,20 +81,6 @@
 					status = "okay";
 				};
 			};
-#if LINUX_VERSION < 500
-			override@2 {
-				target = <&{/gpio@c2f0000/pex-refclk-sel-low}>;
-				_overlay_ {
-					status = "disabled";
-				};
-			};
-			override@3 {
-				target = <&{/gpio@c2f0000/pex-refclk-sel-high}>;
-				_overlay_ {
-					status = "okay";
-				};
-			};
-#endif
 		};
 	};
 };

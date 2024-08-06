@@ -301,34 +301,17 @@
 
 	efuse@3820000 {
 		compatible = "nvidia,tegra194-efuse";
-#if 0
-		reg = <0x0 0x03820000 0x0 0x600>;
-		clocks = <&bpmp TEGRA194_CLK_FUSE>,
-		         <&bpmp TEGRA194_CLK_CLK_M>;
-		clock-names = "fuse", "clk_m";
-		status = "disabled";
-#else
 		reg = <0x0 0x03820000 0x0 0x10000>;
 		clocks = <&bpmp TEGRA194_CLK_FUSE>;
 		clock-names = "fuse";
-#endif
-#if LINUX_VERSION < 419
-		efuse-burn {
-			compatible = "nvidia,tegra194-efuse-burn";
-			clocks = <&bpmp TEGRA194_CLK_CLK_M>;
-			clock-names = "clk_m";
-			status = "disabled";
-		};
-#endif
 	};
-#if LINUX_VERSION >= 419
+
 	efuse-burn {
 		compatible = "nvidia,tegra194-efuse-burn";
 		clocks = <&bpmp TEGRA194_CLK_CLK_M>;
 		clock-names = "clk_m";
 		status = "disabled";
 	};
-#endif
 
 	kfuse@3830000 {
 		compatible = "nvidia,tegra194-kfuse";
@@ -1727,11 +1710,9 @@
 			<&bpmp TEGRA194_CLK_XUSB_FS>;
 		clock-names = "dev", "ss", "ss_src", "fs_src";
 
-#if defined(LINUX_VERSION) && LINUX_VERSION > 414
 		power-domains =  <&bpmp TEGRA194_POWER_DOMAIN_XUSBB>,
 			<&bpmp TEGRA194_POWER_DOMAIN_XUSBA>;
 		power-domain-names = "dev", "ss";
-#endif
 
 		nvidia,xusb-padctl = <&xusb_padctl>;
 
@@ -1921,9 +1902,7 @@
 		cooling-min-state = <0>;
 		cooling-max-state = <1>;
 		#cooling-cells = <2>;
-#if defined(LINUX_VERSION) && LINUX_VERSION > 414
 		nvidia,bpmp = <&bpmp>;
-#endif
 		status = "okay";
 	};
 

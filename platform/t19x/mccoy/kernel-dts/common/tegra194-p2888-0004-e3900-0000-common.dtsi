@@ -340,6 +340,4 @@
 	};
 };
 
-#if LINUX_VERSION >= 414
 #include <tegra194-linux-4.14.dtsi>
-#endif
