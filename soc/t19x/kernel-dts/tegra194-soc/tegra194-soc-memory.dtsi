@@ -158,7 +158,7 @@
 			reg = <0x0 0x02c60000 0x0 0x90000>,
 					<0x0 0x01780000 0x0 0x80000>;
 			interrupts = <GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>;
-			clocks = <&bpmp_clks TEGRA194_CLK_EMC>;
+			clocks = <&bpmp TEGRA194_CLK_EMC>;
 			clock-names = "emc";
 
 			#interconnect-cells = <0>;
@@ -334,7 +334,7 @@
 
 	smmu_test: smmu_test {
 		compatible = "nvidia,smmu_test";
-		iommus = <&smmu TEGRA_SID_SMMU_TEST>;
+		iommus = <&smmu TEGRA194_SID_SMMU_TEST>;
 	};
 
 	dma_test: dma_test {
@@ -343,7 +343,7 @@
 
 	mods_smmu: mods_smmu {
 		compatible = "nvidia,mods_smmu";
-		iommus = <&smmu TEGRA_SID_SMMU_TEST>;
+		iommus = <&smmu TEGRA194_SID_SMMU_TEST>;
 		dma-coherent;
 		dev-names = "mods_smmu";
 		status = "disabled";
@@ -351,7 +351,7 @@
 
 	mods_iso_smmu: mods_iso_smmu {
 		compatible = "nvidia,mods_smmu";
-		iommus = <&smmu_iso TEGRA_SID_SMMU_TEST>;
+		iommus = <&smmu_iso TEGRA194_SID_SMMU_TEST>;
 		non-coherent;
 		dev-names = "mods_iso_smmu";
 		status = "disabled";
@@ -359,7 +359,7 @@
 
 	mods_pcie0: mods_pcie0 {
 		compatible = "nvidia,mods_smmu";
-		iommus = <&smmu TEGRA_SID_PCIE0>;
+		iommus = <&smmu TEGRA194_SID_PCIE0>;
 		dma-coherent;
 		dev-names = "mods_pcie0";
 		status = "disabled";
@@ -367,7 +367,7 @@
 
         mods_pcie1: mods_pcie1 {
 		compatible = "nvidia,mods_smmu";
-		iommus = <&smmu TEGRA_SID_PCIE1>;
+		iommus = <&smmu TEGRA194_SID_PCIE1>;
 		dma-coherent;
 		dev-names = "mods_pcie1";
 		status = "disabled";
@@ -375,7 +375,7 @@
 
 	mods_pcie2: mods_pcie2 {
 		compatible = "nvidia,mods_smmu";
-		iommus = <&smmu TEGRA_SID_PCIE2>;
+		iommus = <&smmu TEGRA194_SID_PCIE2>;
 		dma-coherent;
 		dev-names = "mods_pcie2";
 		status = "disabled";
@@ -383,7 +383,7 @@
 
 	mods_pcie3: mods_pcie3 {
 		compatible = "nvidia,mods_smmu";
-		iommus = <&smmu TEGRA_SID_PCIE3>;
+		iommus = <&smmu TEGRA194_SID_PCIE3>;
 		dma-coherent;
 		dev-names = "mods_pcie3";
 		status = "disabled";
@@ -391,7 +391,7 @@
 
 	mods_pcie4: mods_pcie4 {
 		compatible = "nvidia,mods_smmu";
-		iommus = <&smmu TEGRA_SID_PCIE4>;
+		iommus = <&smmu TEGRA194_SID_PCIE4>;
 		dma-coherent;
 		dev-names = "mods_pcie4";
 		status = "disabled";
@@ -399,7 +399,7 @@
 
 	mods_pcie5: mods_pcie5 {
 		compatible = "nvidia,mods_smmu";
-		iommus = <&smmu TEGRA_SID_PCIE5>;
+		iommus = <&smmu TEGRA194_SID_PCIE5>;
 		dma-coherent;
 		dev-names = "mods_pcie5";
 		status = "disabled";
@@ -407,7 +407,7 @@
 
 	mods_isp: mods_isp {
 		compatible = "nvidia,mods_smmu";
-		iommus = <&smmu TEGRA_SID_ISP>;
+		iommus = <&smmu TEGRA194_SID_ISP>;
 		dma-coherent;
 		dev-names = "mods_isp";
 		status = "disabled";
@@ -415,7 +415,7 @@
 
 	mods_dma: mods_dma {
 		compatible = "nvidia,mods_smmu";
-		iommus = <&smmu TEGRA_SID_GPCDMA_0>;
+		iommus = <&smmu TEGRA194_SID_GPCDMA_0>;
 		dma-coherent;
 		dev-names = "mods_dma";
 		status = "disabled";

@@ -49,32 +49,20 @@
 		status = "okay";
 	};
 
-#if TEGRA_BPMP_FW_DT_VERSION <= DT_VERSION_1
-	clock@0 {
-	        status = "okay";
-	};
-
-	bpmp_reset@0 {
-	        status = "okay";
-	};
-#endif
-
 	bpmp {
-	        status = "okay";
+		status = "okay";
 		bpmpthermal {
 			status = "okay";
 		};
-#if TEGRA_BPMP_FW_DT_VERSION >= DT_VERSION_2
 		i2c {
 			status = "okay";
 		};
-#endif
 	};
 
 	gpu@17000000 {
 		status = "okay";
-		clocks = <&bpmp_clks TEGRA194_CLK_GPCCLK>,
-			<&bpmp_clks TEGRA194_CLK_GPU_PWR>;
+		clocks = <&bpmp TEGRA194_CLK_GPCCLK>,
+			<&bpmp TEGRA194_CLK_GPU_PWR>;
 		clock-names = "gpu", "pwr";
 	};
 
@@ -92,26 +80,13 @@
 		status = "okay";
 	};
 
-#if TEGRA_BPMP_FW_DT_VERSION <= DT_VERSION_1
-	/* BPMP I2c for PMIC acess */
-	bpmp_i2c {
-		status = "okay";
-	};
-#endif
-
 	efuse@3820000 {
 		status = "okay";
-#if LINUX_VERSION < 419
-		efuse-burn {
-			status = "okay";
-		};
-#endif
 	};
-#if LINUX_VERSION >= 419
+
 	efuse-burn {
 		status = "okay";
 	};
-#endif
 
 	kfuse@3830000 {
 		status = "okay";

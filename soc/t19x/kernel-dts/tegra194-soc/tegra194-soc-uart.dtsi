@@ -32,11 +32,9 @@
 
 	uarta: serial@3100000 {
 		compatible = "nvidia,tegra186-hsuart";
-		iommus = <&smmu TEGRA_SID_GPCDMA_0>;
-#if TEGRA_IOMMU_DT_VERSION >= DT_VERSION_2
+		iommus = <&smmu TEGRA194_SID_GPCDMA_0>;
 		interconnects = <&mc TEGRA194_MEMORY_CLIENT_HOST1XDMAR &emc>;
 		interconnect-names = "dma-mem";
-#endif
 		dma-coherent;
 		reg = <0x0 0x03100000 0x0 0x10000>;
 		reg-shift = <2>;
@@ -44,12 +42,12 @@
 		nvidia,memory-clients = <14>;
 		dmas = <&gpcdma 8>, <&gpcdma 8>;
 		dma-names = "rx", "tx";
-		clocks = <&bpmp_clks TEGRA194_CLK_UARTA>,
-			<&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+		clocks = <&bpmp TEGRA194_CLK_UARTA>,
+			<&bpmp TEGRA194_CLK_PLLP_OUT0>;
 		clock-names = "serial", "parent";
-		assigned-clocks = <&bpmp_clks TEGRA194_CLK_UARTA>;
-		assigned-clock-parents = <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
-		resets = <&bpmp_resets TEGRA194_RESET_UARTA>;
+		assigned-clocks = <&bpmp TEGRA194_CLK_UARTA>;
+		assigned-clock-parents = <&bpmp TEGRA194_CLK_PLLP_OUT0>;
+		resets = <&bpmp TEGRA194_RESET_UARTA>;
 		reset-names = "serial";
 		nvidia,adjust-baud-rates = <115200 115200 100>;
 		status = "disabled";
@@ -57,7 +55,7 @@
 
 	uartb: serial@3110000 {
 		compatible = "nvidia,tegra186-hsuart";
-		iommus = <&smmu TEGRA_SID_GPCDMA_0>;
+		iommus = <&smmu TEGRA194_SID_GPCDMA_0>;
 		dma-coherent;
 		reg = <0x0 0x03110000 0x0 0x10000>;
 		reg-shift = <2>;
@@ -65,12 +63,12 @@
 		nvidia,memory-clients = <14>;
 		dmas = <&gpcdma 9>, <&gpcdma 9>;
 		dma-names = "rx", "tx";
-		clocks = <&bpmp_clks TEGRA194_CLK_UARTB>,
-			<&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+		clocks = <&bpmp TEGRA194_CLK_UARTB>,
+			<&bpmp TEGRA194_CLK_PLLP_OUT0>;
 		clock-names = "serial", "parent";
-		assigned-clocks = <&bpmp_clks TEGRA194_CLK_UARTB>;
-		assigned-clock-parents = <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
-		resets = <&bpmp_resets TEGRA194_RESET_UARTB>;
+		assigned-clocks = <&bpmp TEGRA194_CLK_UARTB>;
+		assigned-clock-parents = <&bpmp TEGRA194_CLK_PLLP_OUT0>;
+		resets = <&bpmp TEGRA194_RESET_UARTB>;
 		reset-names = "serial";
 		nvidia,adjust-baud-rates = <115200 115200 100>;
 		status = "disabled";
@@ -78,7 +76,7 @@
 
 	uartc: serial@c280000 {
 		compatible = "nvidia,tegra186-hsuart";
-		iommus = <&smmu TEGRA_SID_GPCDMA_0>;
+		iommus = <&smmu TEGRA194_SID_GPCDMA_0>;
 		dma-coherent;
 		reg = <0x0 0xc280000 0x0 0x10000>;
 		reg-shift = <2>;
@@ -86,12 +84,12 @@
 		nvidia,memory-clients = <14>;
 		dmas = <&gpcdma 3>, <&gpcdma 3>;
 		dma-names = "rx", "tx";
-		clocks = <&bpmp_clks TEGRA194_CLK_UARTC>,
-			<&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+		clocks = <&bpmp TEGRA194_CLK_UARTC>,
+			<&bpmp TEGRA194_CLK_PLLP_OUT0>;
 		clock-names = "serial", "parent";
-		assigned-clocks = <&bpmp_clks TEGRA194_CLK_UARTC>;
-		assigned-clock-parents = <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
-		resets = <&bpmp_resets TEGRA194_RESET_UARTC>;
+		assigned-clocks = <&bpmp TEGRA194_CLK_UARTC>;
+		assigned-clock-parents = <&bpmp TEGRA194_CLK_PLLP_OUT0>;
+		resets = <&bpmp TEGRA194_RESET_UARTC>;
 		reset-names = "serial";
 		nvidia,adjust-baud-rates = <115200 115200 100>;
 		status = "disabled";
@@ -99,7 +97,7 @@
 
 	uartd: serial@3130000 {
 		compatible = "nvidia,tegra186-hsuart";
-		iommus = <&smmu TEGRA_SID_GPCDMA_0>;
+		iommus = <&smmu TEGRA194_SID_GPCDMA_0>;
 		dma-coherent;
 		reg = <0x0 0x03130000 0x0 0x10000>;
 		reg-shift = <2>;
@@ -107,12 +105,12 @@
 		nvidia,memory-clients = <14>;
 		dmas = <&gpcdma 19>, <&gpcdma 19>;
 		dma-names = "rx", "tx";
-		clocks = <&bpmp_clks TEGRA194_CLK_UARTD>,
-			<&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+		clocks = <&bpmp TEGRA194_CLK_UARTD>,
+			<&bpmp TEGRA194_CLK_PLLP_OUT0>;
 		clock-names = "serial", "parent";
-		assigned-clocks = <&bpmp_clks TEGRA194_CLK_UARTD>;
-		assigned-clock-parents = <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
-		resets = <&bpmp_resets TEGRA194_RESET_UARTD>;
+		assigned-clocks = <&bpmp TEGRA194_CLK_UARTD>;
+		assigned-clock-parents = <&bpmp TEGRA194_CLK_PLLP_OUT0>;
+		resets = <&bpmp TEGRA194_RESET_UARTD>;
 		reset-names = "serial";
 		nvidia,adjust-baud-rates = <115200 115200 100>;
 		status = "disabled";
@@ -120,7 +118,7 @@
 
 	uarte: serial@3140000 {
 		compatible = "nvidia,tegra186-hsuart";
-		iommus = <&smmu TEGRA_SID_GPCDMA_0>;
+		iommus = <&smmu TEGRA194_SID_GPCDMA_0>;
 		dma-coherent;
 		reg = <0x0 0x03140000 0x0 0x10000>;
 		reg-shift = <2>;
@@ -128,12 +126,12 @@
 		nvidia,memory-clients = <14>;
 		dmas = <&gpcdma 20>, <&gpcdma 20>;
 		dma-names = "rx", "tx";
-		clocks = <&bpmp_clks TEGRA194_CLK_UARTE>,
-			<&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+		clocks = <&bpmp TEGRA194_CLK_UARTE>,
+			<&bpmp TEGRA194_CLK_PLLP_OUT0>;
 		clock-names = "serial", "parent";
-		assigned-clocks = <&bpmp_clks TEGRA194_CLK_UARTE>;
-		assigned-clock-parents = <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
-		resets = <&bpmp_resets TEGRA194_RESET_UARTE>;
+		assigned-clocks = <&bpmp TEGRA194_CLK_UARTE>;
+		assigned-clock-parents = <&bpmp TEGRA194_CLK_PLLP_OUT0>;
+		resets = <&bpmp TEGRA194_RESET_UARTE>;
 		reset-names = "serial";
 		nvidia,adjust-baud-rates = <115200 115200 100>;
 		status = "disabled";
@@ -141,7 +139,7 @@
 
 	uartf: serial@3150000 {
 		compatible = "nvidia,tegra186-hsuart";
-		iommus = <&smmu TEGRA_SID_GPCDMA_0>;
+		iommus = <&smmu TEGRA194_SID_GPCDMA_0>;
 		dma-coherent;
 		reg = <0x0 0x03150000 0x0 0x10000>;
 		reg-shift = <2>;
@@ -149,12 +147,12 @@
 		nvidia,memory-clients = <14>;
 		dmas = <&gpcdma 12>, <&gpcdma 12>;
 		dma-names = "rx", "tx";
-		clocks = <&bpmp_clks TEGRA194_CLK_UARTF>,
-			<&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+		clocks = <&bpmp TEGRA194_CLK_UARTF>,
+			<&bpmp TEGRA194_CLK_PLLP_OUT0>;
 		clock-names = "serial", "parent";
-		assigned-clocks = <&bpmp_clks TEGRA194_CLK_UARTF>;
-		assigned-clock-parents = <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
-		resets = <&bpmp_resets TEGRA194_RESET_UARTF>;
+		assigned-clocks = <&bpmp TEGRA194_CLK_UARTF>;
+		assigned-clock-parents = <&bpmp TEGRA194_CLK_PLLP_OUT0>;
+		resets = <&bpmp TEGRA194_RESET_UARTF>;
 		reset-names = "serial";
 		nvidia,adjust-baud-rates = <115200 115200 100>;
 		status = "disabled";
@@ -162,7 +160,7 @@
 
 	uartg: serial@c290000 {
 		compatible = "nvidia,tegra186-hsuart";
-		iommus = <&smmu TEGRA_SID_GPCDMA_0>;
+		iommus = <&smmu TEGRA194_SID_GPCDMA_0>;
 		dma-coherent;
 		reg = <0x0 0xc290000 0x0 0x10000>;
 		reg-shift = <2>;
@@ -170,12 +168,12 @@
 		nvidia,memory-clients = <14>;
 		dmas = <&gpcdma 2>, <&gpcdma 2>;
 		dma-names = "rx", "tx";
-		clocks = <&bpmp_clks TEGRA194_CLK_UARTG>,
-			<&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+		clocks = <&bpmp TEGRA194_CLK_UARTG>,
+			<&bpmp TEGRA194_CLK_PLLP_OUT0>;
 		clock-names = "serial", "parent";
-		assigned-clocks = <&bpmp_clks TEGRA194_CLK_UARTG>;
-		assigned-clock-parents = <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
-		resets = <&bpmp_resets TEGRA194_RESET_UARTG>;
+		assigned-clocks = <&bpmp TEGRA194_CLK_UARTG>;
+		assigned-clock-parents = <&bpmp TEGRA194_CLK_PLLP_OUT0>;
+		resets = <&bpmp TEGRA194_RESET_UARTG>;
 		reset-names = "serial";
 		nvidia,adjust-baud-rates = <115200 115200 100>;
 		status = "disabled";
@@ -183,7 +181,7 @@
 
 	uarth: serial@3170000 {
 		compatible = "nvidia,tegra186-hsuart";
-		iommus = <&smmu TEGRA_SID_GPCDMA_0>;
+		iommus = <&smmu TEGRA194_SID_GPCDMA_0>;
 		dma-coherent;
 		reg = <0x0 0x3170000 0x0 0x10000>;
 		reg-shift = <2>;
@@ -191,12 +189,12 @@
 		nvidia,memory-clients = <14>;
 		dmas = <&gpcdma 13>, <&gpcdma 13>;
 		dma-names = "rx", "tx";
-		clocks = <&bpmp_clks TEGRA194_CLK_UARTH>,
-			<&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+		clocks = <&bpmp TEGRA194_CLK_UARTH>,
+			<&bpmp TEGRA194_CLK_PLLP_OUT0>;
 		clock-names = "serial", "parent";
-		assigned-clocks = <&bpmp_clks TEGRA194_CLK_UARTH>;
-		assigned-clock-parents = <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
-		resets = <&bpmp_resets TEGRA194_RESET_UARTH>;
+		assigned-clocks = <&bpmp TEGRA194_CLK_UARTH>;
+		assigned-clock-parents = <&bpmp TEGRA194_CLK_PLLP_OUT0>;
+		resets = <&bpmp TEGRA194_RESET_UARTH>;
 		reset-names = "serial";
 		nvidia,adjust-baud-rates = <115200 115200 100>;
 		status = "disabled";
@@ -211,9 +209,7 @@
 		mboxes = <&hsp_top TEGRA_HSP_MBOX_TYPE_SM TEGRA_HSP_SM_RX(0)>,
 			<&aon_hsp TEGRA_HSP_MBOX_TYPE_SM TEGRA_HSP_SM_TX(1)>;
 		mbox-names = "rx", "tx";
-#if TEGRA_TCU_DT_VERSION >= DT_VERSION_2
 		skip-frame-info;
-#endif
 		status = "disabled";
 	};
 };

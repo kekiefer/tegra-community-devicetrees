@@ -14,7 +14,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <dt-bindings/media/camera.h>
 #include "dt-bindings/clock/tegra194-clock.h"
 #define MIPICFG0 	TEGRA194_MAIN_GPIO(H, 3)
 #define MIPICFG1	TEGRA194_MAIN_GPIO(H, 6)
@@ -228,8 +227,8 @@
 					sensor_model ="ar1335";
 					avdd-reg = "vana";
 					iovdd-reg = "vif";
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH1>,
-						   	 <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH1>,
+						   	 <&bpmp TEGRA194_CLK_PLLP_OUT0>;
 					clock-names = "extperiph1", "pllp_grtba";
 					mclk = "extperiph1";
 					clock-frequency = <24000000>;
@@ -272,8 +271,8 @@
 					sensor_model ="ar1335";
 					avdd-reg = "vana";
 					iovdd-reg = "vif";
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH1>,
-						   	 <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH1>,
+						   	 <&bpmp TEGRA194_CLK_PLLP_OUT0>;
 					clock-names = "extperiph1", "pllp_grtba";
 					mclk = "extperiph1";
 					clock-frequency = <24000000>;
@@ -317,8 +316,8 @@
 					sensor_model ="ar1335";
 					avdd-reg = "vana";
 					iovdd-reg = "vif";
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH1>,
-						   	 <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH1>,
+						   	 <&bpmp TEGRA194_CLK_PLLP_OUT0>;
 					clock-names = "extperiph1", "pllp_grtba";
 					mclk = "extperiph1";
 					clock-frequency = <24000000>;

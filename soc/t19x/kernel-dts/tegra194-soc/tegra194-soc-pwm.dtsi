@@ -19,12 +19,12 @@
 		compatible = "nvidia,tegra194-pwm", "nvidia,tegra186-pwm";
 		reg = <0x0 0x3280000 0x0 0x10000>;
 		nvidia,hw-instance-id = <0x0>;
-		clocks = <&bpmp_clks TEGRA194_CLK_PWM1>,
-		       <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>,
-		       <&bpmp_clks TEGRA194_CLK_CLK_M>;
+		clocks = <&bpmp TEGRA194_CLK_PWM1>,
+		       <&bpmp TEGRA194_CLK_PLLP_OUT0>,
+		       <&bpmp TEGRA194_CLK_CLK_M>;
 		clock-names = "pwm", "parent", "slow-parent";
 		#pwm-cells = <2>;
-		resets = <&bpmp_resets TEGRA194_RESET_PWM1>;
+		resets = <&bpmp TEGRA194_RESET_PWM1>;
 		reset-names = "pwm";
 		status = "disabled";
 	};
@@ -33,10 +33,10 @@
 		compatible = "nvidia,tegra194-pwm", "nvidia,tegra186-pwm";
 		reg = <0x0 0x3290000 0x0 0x10000>;
 		nvidia,hw-instance-id = <0x1>;
-		clocks = <&bpmp_clks TEGRA194_CLK_PWM2>;
+		clocks = <&bpmp TEGRA194_CLK_PWM2>;
 		clock-names = "pwm";
 		#pwm-cells = <2>;
-		resets = <&bpmp_resets TEGRA194_RESET_PWM2>;
+		resets = <&bpmp TEGRA194_RESET_PWM2>;
 		reset-names = "pwm";
 		status = "disabled";
 	};
@@ -45,10 +45,10 @@
 		compatible = "nvidia,tegra194-pwm", "nvidia,tegra186-pwm";
 		reg = <0x0 0x32a0000 0x0 0x10000>;
 		nvidia,hw-instance-id = <0x2>;
-		clocks = <&bpmp_clks TEGRA194_CLK_PWM3>;
+		clocks = <&bpmp TEGRA194_CLK_PWM3>;
 		clock-names = "pwm";
 		#pwm-cells = <2>;
-		resets = <&bpmp_resets TEGRA194_RESET_PWM3>;
+		resets = <&bpmp TEGRA194_RESET_PWM3>;
 		reset-names = "pwm";
 		status = "disabled";
 	};
@@ -57,11 +57,11 @@
 		compatible = "nvidia,tegra194-pwm", "nvidia,tegra186-pwm";
 		reg = <0x0 0xc340000 0x0 0x10000>;
 		nvidia,hw-instance-id = <0x3>;
-		clocks = <&bpmp_clks TEGRA194_CLK_PWM4>,
-			<&bpmp_clks TEGRA194_CLK_PLLAON>;
+		clocks = <&bpmp TEGRA194_CLK_PWM4>,
+			<&bpmp TEGRA194_CLK_PLLAON>;
 		clock-names = "pwm", "pll_aon";
 		#pwm-cells = <2>;
-		resets = <&bpmp_resets TEGRA194_RESET_PWM4>;
+		resets = <&bpmp TEGRA194_RESET_PWM4>;
 		reset-names = "pwm";
 		status = "disabled";
 	};
@@ -70,12 +70,12 @@
 		compatible = "nvidia,tegra194-pwm", "nvidia,tegra186-pwm";
 		reg = <0x0 0x32c0000 0x0 0x10000>;
 		nvidia,hw-instance-id = <0x4>;
-		clocks = <&bpmp_clks TEGRA194_CLK_PWM5>,
-		       <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>,
-		       <&bpmp_clks TEGRA194_CLK_CLK_M>;
+		clocks = <&bpmp TEGRA194_CLK_PWM5>,
+		       <&bpmp TEGRA194_CLK_PLLP_OUT0>,
+		       <&bpmp TEGRA194_CLK_CLK_M>;
 		clock-names = "pwm", "parent", "slow-parent";
 		#pwm-cells = <2>;
-		resets = <&bpmp_resets TEGRA194_RESET_PWM5>;
+		resets = <&bpmp TEGRA194_RESET_PWM5>;
 		reset-names = "pwm";
 		status = "disabled";
 	};
@@ -84,10 +84,10 @@
 		compatible = "nvidia,tegra194-pwm", "nvidia,tegra186-pwm";
 		reg = <0x0 0x32d0000 0x0 0x10000>;
 		nvidia,hw-instance-id = <0x5>;
-		clocks = <&bpmp_clks TEGRA194_CLK_PWM6>;
+		clocks = <&bpmp TEGRA194_CLK_PWM6>;
 		clock-names = "pwm";
 		#pwm-cells = <2>;
-		resets = <&bpmp_resets TEGRA194_RESET_PWM6>;
+		resets = <&bpmp TEGRA194_RESET_PWM6>;
 		reset-names = "pwm";
 		status = "disabled";
 	};
@@ -96,10 +96,10 @@
 		compatible = "nvidia,tegra194-pwm", "nvidia,tegra186-pwm";
 		reg = <0x0 0x32e0000 0x0 0x10000>;
 		nvidia,hw-instance-id = <0x6>;
-		clocks = <&bpmp_clks TEGRA194_CLK_PWM7>;
+		clocks = <&bpmp TEGRA194_CLK_PWM7>;
 		clock-names = "pwm";
 		#pwm-cells = <2>;
-		resets = <&bpmp_resets TEGRA194_RESET_PWM7>;
+		resets = <&bpmp TEGRA194_RESET_PWM7>;
 		reset-names = "pwm";
 		status = "disabled";
 	};
@@ -108,12 +108,12 @@
 		compatible = "nvidia,tegra194-pwm", "nvidia,tegra186-pwm";
 		reg = <0x0 0x32f0000 0x0 0x10000>;
 		nvidia,hw-instance-id = <0x7>;
-		clocks = <&bpmp_clks TEGRA194_CLK_PWM8>,
-		       <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>,
-		       <&bpmp_clks TEGRA194_CLK_CLK_M>;
+		clocks = <&bpmp TEGRA194_CLK_PWM8>,
+		       <&bpmp TEGRA194_CLK_PLLP_OUT0>,
+		       <&bpmp TEGRA194_CLK_CLK_M>;
 		clock-names = "pwm", "parent", "slow-parent";
 		#pwm-cells = <2>;
-		resets = <&bpmp_resets TEGRA194_RESET_PWM8>;
+		resets = <&bpmp TEGRA194_RESET_PWM8>;
 		reset-names = "pwm";
 		status = "disabled";
 	};

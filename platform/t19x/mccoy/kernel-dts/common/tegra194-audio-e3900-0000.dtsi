@@ -11,7 +11,6 @@
 #include <audio/tegra-platforms-audio-dai-links.dtsi>
 #include <dt-bindings/gpio/tegra194-gpio.h>
 #include <dt-bindings/audio/tegra194-audio.h>
-#include <audio/tegra-platforms-audio-dmic3-5-switch.dtsi>
 
 / {
 
@@ -70,12 +69,12 @@
 		status = "okay";
 		compatible = "nvidia,tegra186-ape";
 		nvidia-audio-card,name = "NVIDIA Jetson Clara AGX APE";
-		clocks = <&bpmp_clks TEGRA194_CLK_PLLA>,
-			 <&bpmp_clks TEGRA194_CLK_PLLA_OUT0>,
-			 <&bpmp_clks TEGRA194_CLK_AUD_MCLK>;
+		clocks = <&bpmp TEGRA194_CLK_PLLA>,
+			 <&bpmp TEGRA194_CLK_PLLA_OUT0>,
+			 <&bpmp TEGRA194_CLK_AUD_MCLK>;
 		clock-names = "pll_a", "pll_a_out0", "extern1";
-		assigned-clocks = <&bpmp_clks TEGRA194_CLK_AUD_MCLK>;
-		assigned-clock-parents = <&bpmp_clks TEGRA194_CLK_PLLA_OUT0>;
+		assigned-clocks = <&bpmp TEGRA194_CLK_AUD_MCLK>;
+		assigned-clock-parents = <&bpmp TEGRA194_CLK_PLLA_OUT0>;
 
 		nvidia-audio-card,widgets =
 			"Headphone",	"CVB-RT Headphone Jack",
@@ -230,11 +229,11 @@
 
 		label = "NVIDIA Jetson Clara AGX APE";
 
-		clocks = <&bpmp_clks TEGRA194_CLK_PLLA>,
-			 <&bpmp_clks TEGRA194_CLK_PLLA_OUT0>;
+		clocks = <&bpmp TEGRA194_CLK_PLLA>,
+			 <&bpmp TEGRA194_CLK_PLLA_OUT0>;
 		clock-names = "pll_a", "plla_out0";
-		assigned-clocks = <&bpmp_clks TEGRA194_CLK_AUD_MCLK>;
-		assigned-clock-parents = <&bpmp_clks TEGRA194_CLK_PLLA_OUT0>;
+		assigned-clocks = <&bpmp TEGRA194_CLK_AUD_MCLK>;
+		assigned-clock-parents = <&bpmp TEGRA194_CLK_PLLA_OUT0>;
 
 		widgets = "Headphone",	"CVB-RT Headphone Jack",
 			  "Microphone", "CVB-RT Mic Jack",

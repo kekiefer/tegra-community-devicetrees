@@ -86,8 +86,8 @@
 				#address-cells = <1>;
 				#size-cells = <0>;
 				ov5693_a@36 {
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH1>,
-						 <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH1>,
+						 <&bpmp TEGRA194_CLK_PLLP_OUT0>;
 					clock-names = "extperiph1", "pllp_grtba";
 					mclk = "extperiph1";
 					clock-frequency = <24000000>;
@@ -103,8 +103,8 @@
 				#address-cells = <1>;
 				#size-cells = <0>;
 				ov5693_b@36 {
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH1>,
-						 <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH1>,
+						 <&bpmp TEGRA194_CLK_PLLP_OUT0>;
 					clock-names = "extperiph1", "pllp_grtba";
 					mclk = "extperiph1";
 					clock-frequency = <24000000>;
@@ -120,8 +120,8 @@
 				#address-cells = <1>;
 				#size-cells = <0>;
 				ov5693_c@36 {
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH1>,
-						 <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH1>,
+						 <&bpmp TEGRA194_CLK_PLLP_OUT0>;
 					clock-names = "extperiph1", "pllp_grtba";
 					mclk = "extperiph1";
 					clock-frequency = <24000000>;
@@ -137,8 +137,8 @@
 				#address-cells = <1>;
 				#size-cells = <0>;
 				ov5693_d@36 {
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH2>,
-						 <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH2>,
+						 <&bpmp TEGRA194_CLK_PLLP_OUT0>;
 					clock-names = "extperiph2", "pllp_grtba";
 					mclk = "extperiph2";
 					clock-frequency = <24000000>;
@@ -154,8 +154,8 @@
 				#address-cells = <1>;
 				#size-cells = <0>;
 				ov5693_e@36 {
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH2>,
-						 <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH2>,
+						 <&bpmp TEGRA194_CLK_PLLP_OUT0>;
 					clock-names = "extperiph2", "pllp_grtba";
 					mclk = "extperiph2";
 					clock-frequency = <24000000>;
@@ -171,8 +171,8 @@
 				#address-cells = <1>;
 				#size-cells = <0>;
 				ov5693_g@36 {
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH2>,
-						 <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH2>,
+						 <&bpmp TEGRA194_CLK_PLLP_OUT0>;
 					clock-names = "extperiph2", "pllp_grtba";
 					mclk = "extperiph2";
 					clock-frequency = <24000000>;

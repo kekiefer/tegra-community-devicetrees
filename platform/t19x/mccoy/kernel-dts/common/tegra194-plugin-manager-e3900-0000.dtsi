@@ -33,14 +33,6 @@
 					status = "disabled";
 				};
 			};
-#if TEGRA_PCIE_VERSION < DT_VERSION_2
-			override@2 {
-				target = <&{/gpio@c2f0000/pex-refclk-sel-low}>;
-				_overlay_ {
-					status = "okay";
-				};
-			};
-#endif
 		};
 
 		fragment-pcie-c5-ep {
@@ -59,14 +51,6 @@
 					status = "okay";
 				};
 			};
-#if TEGRA_PCIE_VERSION < DT_VERSION_2
-			override@2 {
-				target = <&{/gpio@c2f0000/pex-refclk-sel-high}>;
-				_overlay_ {
-					status = "okay";
-				};
-			};
-#endif
 		};
 
 		/* E2832 (LT6911UXC) drives I2S clocks */

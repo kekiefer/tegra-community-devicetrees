@@ -18,11 +18,11 @@
 /{
 	bthrot_cdev {
 		compatible = "nvidia,tegra-thermal-throttle";
-		clocks = <&bpmp_clks TEGRA194_CLK_NAFLL_CLUSTER0>,
-				<&bpmp_clks TEGRA194_CLK_NAFLL_CLUSTER1>,
-				<&bpmp_clks TEGRA194_CLK_NAFLL_CLUSTER2>,
-				<&bpmp_clks TEGRA194_CLK_NAFLL_CLUSTER3>,
-				<&bpmp_clks TEGRA194_CLK_NAFLL_GPU>;
+		clocks = <&bpmp TEGRA194_CLK_NAFLL_CLUSTER0>,
+				<&bpmp TEGRA194_CLK_NAFLL_CLUSTER1>,
+				<&bpmp TEGRA194_CLK_NAFLL_CLUSTER2>,
+				<&bpmp TEGRA194_CLK_NAFLL_CLUSTER3>,
+				<&bpmp TEGRA194_CLK_NAFLL_GPU>;
 		clock-names = "cpu0", "cpu1", "cpu2", "cpu3", "gpu";
 		skin_balanced {
 			cdev-type = "skin-balanced";

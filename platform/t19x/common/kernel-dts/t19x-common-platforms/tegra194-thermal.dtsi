@@ -30,11 +30,7 @@
 		};
 	};
 
-#if TEGRA_BPMP_FW_DT_VERSION >= DT_VERSION_2
 	bpmp { i2c {
-#else
-	bpmp_i2c {
-#endif
 		tegra_tmp451: temp-sensor@4c {
 			status = "okay";
 			#thermal-sensor-cells = <1>;
@@ -50,10 +46,6 @@
 			interrupts = <TEMP_ALERT IRQ_TYPE_LEVEL_LOW>;
 			temp-alert-gpio = <&tegra_main_gpio TEMP_ALERT 0>;
 
-#if TEGRA_BPMP_FW_DT_VERSION < DT_VERSION_2
-			vdd-supply = <&e3360_vdd_slt_1v8>;
-#endif
-
 			/* vdd-supply configured in power tree */
 
 			loc {
@@ -64,11 +56,7 @@
 				shutdown-limit = <109>;
 			};
 		};
-#if TEGRA_BPMP_FW_DT_VERSION >= DT_VERSION_2
 	}; };
-#else
-	};
-#endif
 
 	cpus {
 		cpu@0 {

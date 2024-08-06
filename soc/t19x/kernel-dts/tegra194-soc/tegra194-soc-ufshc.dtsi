@@ -39,28 +39,26 @@
 		compatible = "tegra,ufs_variant";
 		reg = <0x0 0x02450000 0x0 0x4000>;
 		interrupts = < 0 44 0x04 >;
-		iommus = <&smmu TEGRA_SID_UFSHC>;
-#if TEGRA_IOMMU_DT_VERSION >= DT_VERSION_2
+		iommus = <&smmu TEGRA194_SID_UFSHC>;
 		interconnects = <&mc TEGRA194_MEMORY_CLIENT_UFSHCR &emc>,
 				<&mc TEGRA194_MEMORY_CLIENT_UFSHCW &emc>;
 		interconnect-names = "dma-mem", "write";
-#endif
 		dma-coherent;
-		clocks = <&bpmp_clks TEGRA194_CLK_PLLREFE_VCOOUT>,
-				<&bpmp_clks TEGRA194_CLK_MPHY_CORE_PLL_FIXED>,
-				<&bpmp_clks TEGRA194_CLK_MPHY_L0_TX_SYMB>,
-				<&bpmp_clks TEGRA194_CLK_MPHY_TX_1MHZ_REF> ,
-				<&bpmp_clks TEGRA194_CLK_MPHY_L0_RX_ANA>,
-				<&bpmp_clks TEGRA194_CLK_MPHY_L0_RX_SYMB>,
-				<&bpmp_clks TEGRA194_CLK_MPHY_L0_TX_LS_3XBIT>,
-				<&bpmp_clks TEGRA194_CLK_MPHY_L0_RX_LS_BIT>,
-				<&bpmp_clks TEGRA194_CLK_MPHY_L1_RX_ANA>,
-				<&bpmp_clks TEGRA194_CLK_UFSHC>,
-				<&bpmp_clks TEGRA194_CLK_UFSDEV_REF>,
-				<&bpmp_clks TEGRA194_CLK_PLLP_OUT0>,
-				<&bpmp_clks TEGRA194_CLK_CLK_M>,
-				<&bpmp_clks TEGRA194_CLK_MPHY_FORCE_LS_MODE>,
-				<&bpmp_clks TEGRA194_CLK_UPHY_PLL3>;
+		clocks = <&bpmp TEGRA194_CLK_PLLREFE_VCOOUT>,
+				<&bpmp TEGRA194_CLK_MPHY_CORE_PLL_FIXED>,
+				<&bpmp TEGRA194_CLK_MPHY_L0_TX_SYMB>,
+				<&bpmp TEGRA194_CLK_MPHY_TX_1MHZ_REF> ,
+				<&bpmp TEGRA194_CLK_MPHY_L0_RX_ANA>,
+				<&bpmp TEGRA194_CLK_MPHY_L0_RX_SYMB>,
+				<&bpmp TEGRA194_CLK_MPHY_L0_TX_LS_3XBIT>,
+				<&bpmp TEGRA194_CLK_MPHY_L0_RX_LS_BIT>,
+				<&bpmp TEGRA194_CLK_MPHY_L1_RX_ANA>,
+				<&bpmp TEGRA194_CLK_UFSHC>,
+				<&bpmp TEGRA194_CLK_UFSDEV_REF>,
+				<&bpmp TEGRA194_CLK_PLLP_OUT0>,
+				<&bpmp TEGRA194_CLK_CLK_M>,
+				<&bpmp TEGRA194_CLK_MPHY_FORCE_LS_MODE>,
+				<&bpmp TEGRA194_CLK_UPHY_PLL3>;
 		clock-names = "pllrefe_vcoout", "mphy_core_pll_fixed",
 				"mphy_l0_tx_symb", "mphy_tx_1mhz_ref",
 				"mphy_l0_rx_ana", "mphy_l0_rx_symb",
@@ -68,14 +66,14 @@
 				"mphy_l1_rx_ana", "ufshc", "ufsdev_ref",
 				"pll_p", "clk_m", "mphy_force_ls_mode",
 				"uphy_pll3";
-		resets = <&bpmp_resets TEGRA194_RESET_MPHY_L0_RX>,
-				<&bpmp_resets TEGRA194_RESET_MPHY_L0_TX>,
-				<&bpmp_resets TEGRA194_RESET_MPHY_L1_RX>,
-				<&bpmp_resets TEGRA194_RESET_MPHY_L1_TX>,
-				<&bpmp_resets TEGRA194_RESET_MPHY_CLK_CTL>,
-				<&bpmp_resets TEGRA194_RESET_UFSHC>,
-				<&bpmp_resets TEGRA194_RESET_UFSHC_AXI_M>,
-				<&bpmp_resets TEGRA194_RESET_UFSHC_LP_SEQ>;
+		resets = <&bpmp TEGRA194_RESET_MPHY_L0_RX>,
+				<&bpmp TEGRA194_RESET_MPHY_L0_TX>,
+				<&bpmp TEGRA194_RESET_MPHY_L1_RX>,
+				<&bpmp TEGRA194_RESET_MPHY_L1_TX>,
+				<&bpmp TEGRA194_RESET_MPHY_CLK_CTL>,
+				<&bpmp TEGRA194_RESET_UFSHC>,
+				<&bpmp TEGRA194_RESET_UFSHC_AXI_M>,
+				<&bpmp TEGRA194_RESET_UFSHC_LP_SEQ>;
 		reset-names = "mphy-l0-rx-rst", "mphy-l0-tx-rst", "mphy-l1-rx-rst",
 				"mphy-l1-tx-rst", "mphy-clk-ctl-rst", "ufs-rst",
 				"ufs-axi-m-rst", "ufshc-lp-rst";

@@ -22,7 +22,7 @@
 			override@0 {
 				target = <&pwm_fan_shared_data>;
 				_overlay_ {
-					pwm_polarity = <PWM_POLARITY_INVERTED>;
+					pwm_polarity = <1>;
 				};
 			};
 			override@1 {

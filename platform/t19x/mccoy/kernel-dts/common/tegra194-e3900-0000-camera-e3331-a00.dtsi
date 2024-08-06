@@ -47,8 +47,8 @@
 				#address-cells = <1>;
 				#size-cells = <0>;
 				imx318_a@10 {
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH1>,
-						 <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH1>,
+						 <&bpmp TEGRA194_CLK_PLLP_OUT0>;
 					clock-names = "extperiph1", "pllp_grtba";
 					mclk = "extperiph1";
 					clock-frequency = <24000000>;

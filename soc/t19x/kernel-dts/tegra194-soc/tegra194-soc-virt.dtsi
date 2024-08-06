@@ -94,12 +94,12 @@
 		};
 
 		nvdec@15480000 {
-			clocks = <&bpmp_clks TEGRA194_CLK_NVDEC>;
+			clocks = <&bpmp TEGRA194_CLK_NVDEC>;
 			clock-names = "nvdec";
 		};
 
 		nvdec1@15140000 {
-			clocks = <&bpmp_clks TEGRA194_CLK_NVDEC1>;
+			clocks = <&bpmp TEGRA194_CLK_NVDEC1>;
 			clock-names = "nvdec";
 		};
 
@@ -288,9 +288,9 @@
 		 * since multiple VMs can't own ADSP reset
 		 */
 		adsp@2993000 {
-			clocks = <&bpmp_clks TEGRA194_CLK_ADSPNEON>,
-				<&bpmp_clks TEGRA194_CLK_ADSP>,
-				<&bpmp_clks TEGRA194_CLK_ACLK>;
+			clocks = <&bpmp TEGRA194_CLK_ADSPNEON>,
+				<&bpmp TEGRA194_CLK_ADSP>,
+				<&bpmp TEGRA194_CLK_ACLK>;
 			clock-names = "adspneon", "adsp", "aclk";
 
 			/delete-property/ resets;
@@ -302,7 +302,7 @@
 		 * ADSP reset handling during guest reset.
 		 */
 		ahub {
-			resets = <&bpmp_resets TEGRA194_RESET_ADSP_ALL>;
+			resets = <&bpmp TEGRA194_RESET_ADSP_ALL>;
 			reset-names = "adspall";
 		};
 	};

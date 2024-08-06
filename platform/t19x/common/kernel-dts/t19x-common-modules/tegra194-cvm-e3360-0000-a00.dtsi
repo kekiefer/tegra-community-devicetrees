@@ -18,7 +18,6 @@
  * T194 E3360-1099 CVM DTSI file.
  */
 
-#include <dt-bindings/types.h>
 /dts-v1/;
 
 /memreserve/ 0x80000000 0x00010000;
@@ -37,9 +36,7 @@
 	};
 
 	pmc@c360000 {
-#if TEGRA_PMC_VERSION >= DT_VERSION_2
 		nvidia,invert-interrupt;
-#endif
 		iopad_defaults: iopad-defaults {
 			sdmmc-io-pads {
 				pins = "sdmmc1-hv", "sdmmc3-hv";
@@ -47,12 +44,6 @@
 			};
 		};
 	};
-
-#if TEGRA_PMC_VERSION < DT_VERSION_2
-	pmc@c370000 {
-		nvidia,invert-interrupt;
-	};
-#endif
 
 	plugin-manager {
 		fragment-e3360-a00-mods {

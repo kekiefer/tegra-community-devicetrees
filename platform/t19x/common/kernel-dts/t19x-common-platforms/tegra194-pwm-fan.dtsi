@@ -28,7 +28,7 @@
 		state_cap_lookup = <2 2 2 2 3 3 3 4 4 4>;
 		pwm_period = <45334>;
 		pwm_id = <4>;
-		pwm_polarity = <PWM_POLARITY_INVERTED>;
+		pwm_polarity = <1>;
 		suspend_state = <1>;
 		step_time = <100>; /* mesecs */
 		state_cap = <7>;
@@ -47,19 +47,11 @@
 			default = "quiet";
 			quiet {
 				state_cap = <4>;
-#if TEGRA_PWM_FAN_DT_VERSION == DT_VERSION_2
 				cooling-levels = <255 178 135 95 0 0 0 0 0 0>;
-#else
-				active_pwm = <0 77 120 160 255 255 255 255 255 255>;
-#endif
 			};
 			cool {
 				state_cap = <4>;
-#if TEGRA_PWM_FAN_DT_VERSION == DT_VERSION_2
 				cooling-levels = <255 178 135 95 0 0 0 0 0 0>;
-#else
-				active_pwm = <0 77 120 160 255 255 255 255 255 255>;
-#endif
 			};
 		};
 	};

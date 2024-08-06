@@ -65,8 +65,8 @@
 					def-addr = <0x1a>;
 					/* Define any required hw resources needed by driver */
 					/* ie. clocks, io pins, power sources */
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH1>,
-							<&bpmp_clks TEGRA194_CLK_EXTPERIPH1>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH1>,
+							<&bpmp TEGRA194_CLK_EXTPERIPH1>;
 					clock-names = "extperiph1", "pllp_grtba";
 					mclk = "extperiph1";
 					nvidia,gmsl-ser-device = <&ser_a>;
@@ -76,8 +76,8 @@
 					def-addr = <0x1a>;
 					/* Define any required hw resources needed by driver */
 					/* ie. clocks, io pins, power sources */
-					clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH1>,
-							<&bpmp_clks TEGRA194_CLK_EXTPERIPH1>;
+					clocks = <&bpmp TEGRA194_CLK_EXTPERIPH1>,
+							<&bpmp TEGRA194_CLK_EXTPERIPH1>;
 					clock-names = "extperiph1", "pllp_grtba";
 					mclk = "extperiph1";
 					nvidia,gmsl-ser-device = <&ser_b>;

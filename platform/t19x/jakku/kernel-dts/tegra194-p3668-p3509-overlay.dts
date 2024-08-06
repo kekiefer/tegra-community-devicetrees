@@ -31,19 +31,11 @@
 			odm-data = "enable-pmic-wdt";
 		};
 		__overlay__ {
-#if TEGRA_BPMP_FW_DT_VERSION >= DT_VERSION_2
 			bpmp { i2c {
-#else
-			bpmp_i2c {
-#endif
 				watchdog {
 					status = "okay";
 				};
-#if TEGRA_BPMP_FW_DT_VERSION >= DT_VERSION_2
 			}; };
-#else
-			};
-#endif
 		};
 	};
 
@@ -104,13 +96,6 @@
 			pcie_ep@141a0000 {
 				status = "okay";
 			};
-#if TEGRA_PCIE_VERSION < DT_VERSION_2
-			gpio@c2f0000 {
-				pex-refclk-sel-high {
-					status = "okay";
-				};
-			};
-#endif
 		};
 	};
 };

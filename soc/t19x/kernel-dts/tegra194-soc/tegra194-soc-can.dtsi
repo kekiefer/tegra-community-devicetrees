@@ -26,12 +26,12 @@
 		 reg-names = "can-regs", "glue-regs", "msg-ram";
 		 interrupts = <0 40 0x04 >;
 		 pll_source = "pllaon";
-		 clocks = <&bpmp_clks TEGRA194_CLK_CAN1_CORE>,
-			<&bpmp_clks TEGRA194_CLK_CAN1_HOST>,
-			<&bpmp_clks TEGRA194_CLK_CAN1>,
-			<&bpmp_clks TEGRA194_CLK_PLLAON>;
+		 clocks = <&bpmp TEGRA194_CLK_CAN1_CORE>,
+			<&bpmp TEGRA194_CLK_CAN1_HOST>,
+			<&bpmp TEGRA194_CLK_CAN1>,
+			<&bpmp TEGRA194_CLK_PLLAON>;
 		 clock-names = "can_core", "can_host","can","pllaon";
-		 resets = <&bpmp_resets TEGRA194_RESET_CAN1>;
+		 resets = <&bpmp TEGRA194_RESET_CAN1>;
 		 reset-names = "can";
 		 mram-params = <0 16 16 32 0 0 16 16 16>;
 		 tx-config = <0 16 0 64>;
@@ -56,12 +56,12 @@
 		 reg-names = "can-regs", "glue-regs", "msg-ram";
 		 interrupts = <0 42 0x04 >;
 		 pll_source = "pllaon";
-		 clocks = <&bpmp_clks TEGRA194_CLK_CAN2_CORE>,
-			<&bpmp_clks TEGRA194_CLK_CAN2_HOST>,
-			<&bpmp_clks TEGRA194_CLK_CAN2>,
-			<&bpmp_clks TEGRA194_CLK_PLLAON>;
+		 clocks = <&bpmp TEGRA194_CLK_CAN2_CORE>,
+			<&bpmp TEGRA194_CLK_CAN2_HOST>,
+			<&bpmp TEGRA194_CLK_CAN2>,
+			<&bpmp TEGRA194_CLK_PLLAON>;
 		 clock-names = "can_core", "can_host","can","pllaon";
-		 resets = <&bpmp_resets TEGRA194_RESET_CAN2>;
+		 resets = <&bpmp TEGRA194_RESET_CAN2>;
 		 reset-names = "can";
 		 mram-params = <0 16 16 32 0 0 16 16 16>;
 		 tx-config = <0 16 0 64>;

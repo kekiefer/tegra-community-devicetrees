@@ -17,25 +17,25 @@
 #include <dt-bindings/clock/tegra194-clock.h>
 /{
         spi@c260000 {
-                clocks = <&bpmp_clks TEGRA194_CLK_SPI2>,
-                        <&bpmp_clks TEGRA194_CLK_OSC>;
+                clocks = <&bpmp TEGRA194_CLK_SPI2>,
+                        <&bpmp TEGRA194_CLK_OSC>;
         };
 
         mttcan@c310000 {
 		pll_source = "osc";
-                clocks = <&bpmp_clks TEGRA194_CLK_CAN1_CORE>,
-                        <&bpmp_clks TEGRA194_CLK_CAN1_HOST>,
-                        <&bpmp_clks TEGRA194_CLK_CAN1>,
-                        <&bpmp_clks TEGRA194_CLK_OSC>;
+                clocks = <&bpmp TEGRA194_CLK_CAN1_CORE>,
+                        <&bpmp TEGRA194_CLK_CAN1_HOST>,
+                        <&bpmp TEGRA194_CLK_CAN1>,
+                        <&bpmp TEGRA194_CLK_OSC>;
 		 clock-names = "can_core", "can_host","can", "osc";
         };
 
         mttcan@c320000 {
 		pll_source = "osc";
-                clocks = <&bpmp_clks TEGRA194_CLK_CAN2_CORE>,
-                        <&bpmp_clks TEGRA194_CLK_CAN2_HOST>,
-                        <&bpmp_clks TEGRA194_CLK_CAN2>,
-                        <&bpmp_clks TEGRA194_CLK_OSC>;
+                clocks = <&bpmp TEGRA194_CLK_CAN2_CORE>,
+                        <&bpmp TEGRA194_CLK_CAN2_HOST>,
+                        <&bpmp TEGRA194_CLK_CAN2>,
+                        <&bpmp TEGRA194_CLK_OSC>;
 		 clock-names = "can_core", "can_host","can", "osc";
         };
 };

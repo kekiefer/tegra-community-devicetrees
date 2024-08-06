@@ -14,18 +14,10 @@
 #include <t19x-common-platforms/tegra194-thermal.dtsi>
 #include <t19x-common-platforms/tegra194-thermal-userspace-alert.dtsi>
 / {
-#if TEGRA_BPMP_FW_DT_VERSION >= DT_VERSION_2
 	bpmp { i2c {
-#else
-	bpmp_i2c {
-#endif
 		/delete-node/ temp-sensor@4c;
-#if TEGRA_BPMP_FW_DT_VERSION >= DT_VERSION_2
 	};
 	};
-#else
-	};
-#endif
 	thermal-zones {
 		/delete-node/ Tboard_tegra;
 		/delete-node/ Tdiode_tegra;

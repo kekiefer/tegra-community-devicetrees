@@ -29,8 +29,8 @@
 		imx274_a@1a {
 			/* Define any required hw resources needed by driver */
 			/* ie. clocks, io pins, power sources */
-			clocks = <&bpmp_clks TEGRA194_CLK_EXTPERIPH2>,
-					 <&bpmp_clks TEGRA194_CLK_PLLP_OUT0>;
+			clocks = <&bpmp TEGRA194_CLK_EXTPERIPH2>,
+					 <&bpmp TEGRA194_CLK_PLLP_OUT0>;
 			clock-names = "extperiph2", "pllp_grtba";
 			mclk = "extperiph2";
 			status = "okay";
