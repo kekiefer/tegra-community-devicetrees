@@ -1731,30 +1731,23 @@
 		interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>,
 					<GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
 
-		interrupt-parent = <&tegra_pm_irq>;
-
 		interconnects = <&mc TEGRA194_MEMORY_CLIENT_XUSB_HOSTR &emc>,
 				<&mc TEGRA194_MEMORY_CLIENT_XUSB_HOSTW &emc>;
 		interconnect-names = "dma-mem", "write";
 
-		clocks = <&bpmp TEGRA194_CLK_XUSB_CORE_MUX>,
-			<&bpmp TEGRA194_CLK_XUSB_CORE_HOST>,
-			<&bpmp TEGRA194_CLK_XUSB_CORE_SS>,
-			<&bpmp TEGRA194_CLK_XUSB_FALCON>,
-			<&bpmp TEGRA194_CLK_XUSB_FALCON_HOST>,
-			<&bpmp TEGRA194_CLK_XUSB_FALCON_SS>,
-			<&bpmp TEGRA194_CLK_XUSB_FS>,
-			<&bpmp TEGRA194_CLK_XUSB_FS_HOST>,
-			<&bpmp TEGRA194_CLK_XUSB_SS>,
-			<&bpmp TEGRA194_CLK_XUSB_SS_SUPERSPEED>,
-			<&bpmp TEGRA194_CLK_UTMIPLL>,
-			<&bpmp TEGRA194_CLK_CLK_M>,
-			<&bpmp TEGRA194_CLK_PLLE>;
-		clock-names = "xusb_hs_src", "xusb_host",
-			"xusb_core_superspeed_clk", "xusb_falcon_src",
-			"xusb_falcon_host_clk", "xusb_falcon_superspeed_clk",
-			"xusb_fs_src", "xusb_fs_host_clk", "xusb_ss_src",
-			"xusb_ss", "pll_u_480m", "clk_m", "pll_e";
+		clocks = <&bpmp TEGRA194_CLK_XUSB_CORE_HOST>,
+				 <&bpmp TEGRA194_CLK_XUSB_FALCON>,
+				 <&bpmp TEGRA194_CLK_XUSB_CORE_SS>,
+				 <&bpmp TEGRA194_CLK_XUSB_SS>,
+				 <&bpmp TEGRA194_CLK_CLK_M>,
+				 <&bpmp TEGRA194_CLK_XUSB_FS>,
+				 <&bpmp TEGRA194_CLK_UTMIPLL>,
+				 <&bpmp TEGRA194_CLK_CLK_M>,
+				 <&bpmp TEGRA194_CLK_PLLE>;
+			clock-names = "xusb_host", "xusb_falcon_src",
+				      "xusb_ss", "xusb_ss_src", "xusb_hs_src",
+				      "xusb_fs_src", "pll_u_480m", "clk_m",
+				      "pll_e";
 
 		power-domains =  <&bpmp TEGRA194_POWER_DOMAIN_XUSBC>,
 			<&bpmp TEGRA194_POWER_DOMAIN_XUSBA>;
