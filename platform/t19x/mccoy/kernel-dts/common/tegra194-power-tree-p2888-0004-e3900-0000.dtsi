@@ -62,11 +62,11 @@
 	};
 
 	pwm-fan {
-		vdd-fan-supply = <&e3900_atx_12v_cvb>;
+		fan-supply = <&e3900_atx_12v_cvb>;
 	};
 
 	pwm-fan-fpga {
-		vdd-fan-supply = <&e3900_atx_12v_cvb>;
+		fan-supply = <&e3900_atx_12v_cvb>;
 	};
 
 	bpmp { i2c {
