@@ -23,9 +23,6 @@
 
 &head0 {
 	status = "okay";
-	avdd-io-hdmi-dp-supply = <&p2888_spmic_sd0>; /* 1v0 */
-	vdd-hdmi-dp-pll-supply = <&p2888_spmic_sd1>; /* 1v8 */
-	hdmi-supply = <&e3900_vdd_5v0_hdmi_cvb>; /* 5v0 */
 };
 
 &sor2 {
@@ -33,6 +30,9 @@
 	nvidia,active-panel = <&sor2_hdmi_display>;
 	nvidia,hpd-gpio = <&tegra_main_gpio TEGRA194_MAIN_GPIO(M, 2) GPIO_ACTIVE_HIGH>;
 	nvidia,ddc-i2c-bus = <&dp_aux_ch2_i2c>;
+	avdd-io-hdmi-dp-supply = <&p2888_spmic_sd0>; /* 1v0 */
+	vdd-hdmi-dp-pll-supply = <&p2888_spmic_sd1>; /* 1v8 */
+	hdmi-supply = <&e3900_vdd_5v0_hdmi_cvb>; /* 5v0 */
 };
 
 &sor2_hdmi_display {
