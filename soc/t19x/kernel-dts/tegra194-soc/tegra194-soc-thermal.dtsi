@@ -17,35 +17,40 @@
 
 / {
 	thermal-zones {
-		pllx: CPU-therm {
+		cpu-thermal {
 			polling-delay = <0>;
 			polling-delay-passive = <1000>;
-			thermal-sensors = <&{/bpmp/bpmpthermal} THERMAL_ZONE_PLLX>;
+			thermal-sensors = <&{/bpmp/bpmpthermal} THERMAL_ZONE_CPU>;
 			status = "disabled";
 		};
 
-		GPU-therm {
+		gpu-thermal {
 			polling-delay = <0>;
 			polling-delay-passive = <1000>;
 			thermal-sensors = <&{/bpmp/bpmpthermal} THERMAL_ZONE_GPU>;
 			status = "disabled";
 		};
 
-		AUX-therm {
+		aux-thermal {
 			polling-delay = <0>;
 			polling-delay-passive = <1000>;
 			thermal-sensors = <&{/bpmp/bpmpthermal} THERMAL_ZONE_AUX>;
 			status = "disabled";
 		};
 
-		aotag: AO-therm {
+		pllx: pllx-thermal {
+			thermal-sensors = <&{/bpmp/bpmpthermal} THERMAL_ZONE_PLLX>;
+			status = "disabled";
+		};
+
+		ao-thermal {
 			polling-delay = <0>;
 			polling-delay-passive = <1000>;
 			thermal-sensors = <&{/bpmp/bpmpthermal} THERMAL_ZONE_AO>;
 			status = "disabled";
 		};
 
-		tj_therm: tj-therm {
+		tj-thermal {
 			polling-delay = <0>;
 			polling-delay-passive = <1000>;
 			thermal-sensors = <&{/bpmp/bpmpthermal} THERMAL_ZONE_TJ_MAX>;

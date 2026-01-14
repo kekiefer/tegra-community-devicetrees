@@ -16,35 +16,23 @@
 
 / {
 	cpus {
-		CPU_CORE_POWER_STATES: cpu_core_power_states {
-			compatible = "nvidia,tegra194-cpuidle-core";
+		idle-states {
+			entry-method = "psci";
 
-			C1: c1 {
-				compatible = "nvidia,tegra194-cpuidle-core";
-				state-name = "Clock gated";
-				wakeup-latency-us = <1>;
-				min-residency-us = <1>;
-				power = <70>;
-				pmstate = <0x1>;
-				status = "okay";
-			};
 			C6: c6 {
-				compatible = "nvidia,tegra194-cpuidle-core";
+				compatible = "arm,idle-state";
 				state-name = "Virtual core powergate";
 				wakeup-latency-us = <2000>;
 				min-residency-us = <0xffffffff>;
-				power = <60>;
-				pmstate = <0x6>;
 				arm,psci-suspend-param= <0x6>;
 				status = "okay";
 			};
+
 			C7: c7 {
-				compatible = "nvidia,tegra194-cpuidle-core";
-				state-name = "Core powergate";
+				compatible = "arm,idle-state";
+				idle-state-name = "Core powergate";
 				wakeup-latency-us = <560>;
 				min-residency-us = <0xffffffff>;
-				power = <60>;
-				pmstate = <0x7>;
 				arm,psci-suspend-param= <0x40000007>;
 				status = "disabled";
 			};

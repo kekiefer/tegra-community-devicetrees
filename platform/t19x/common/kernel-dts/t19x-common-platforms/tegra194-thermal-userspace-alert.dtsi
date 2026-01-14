@@ -41,7 +41,7 @@
 	};
 
 	thermal-zones {
-		CPU-therm {
+		cpu-thermal {
 			cooling-maps {
 				user-alert-map0 {
 					trip = <&cpu_sw_throttle>;
@@ -53,7 +53,7 @@
 				};
 			};
 		};
-		AUX-therm {
+		aux-thermal {
 			cooling-maps {
 				user-alert-map0 {
 					trip = <&aux_sw_throttle>;
@@ -65,7 +65,7 @@
 				};
 			};
 		};
-		GPU-therm {
+		gpu-thermal {
 			cooling-maps {
 				user-alert-map0 {
 					trip = <&gpu_sw_throttle>;

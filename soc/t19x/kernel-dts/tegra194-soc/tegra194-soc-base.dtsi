@@ -387,11 +387,9 @@
 	host1x: host1x@13e00000 {
 		compatible = "nvidia,tegra194-host1x", "simple-bus";
 		reg = <0x0 0x13e10000 0x0 0x00010000>,
-		      <0x0 0x13e00000 0x0 0x00010000>,
-		      <0x0 0x13ec0000 0x0 0x00060000>,
-		      <0x0 0x60000000 0x0 0x00400000>,
-			  <0x0 0x13e10000 0x0 0x10000>;
-		reg-names = "guest", "hypervisor", "actmon", "sem-syncpt-shim", "vm";
+			  <0x0 0x13e00000 0x0 0x00010000>,
+			  <0x0 0x13ef0000 0x0 0x00060000>;
+		reg-names = "vm", "hypervisor", "actmon";
 		interrupts = <0 265 0x04>,
 			     <0 263 0x04>;
 		interrupt-names = "syncpt", "host1x";
@@ -1611,7 +1609,7 @@
 		reg = <0x0 0x03520000 0x0 0x1000>,
 			<0x0 0x03540000 0x0 0x1000>;
 		reg-names = "padctl", "ao";
-		interrupts = <0 167 0x4>;
+		interrupts = <GIC_SPI 167 IRQ_TYPE_LEVEL_HIGH>;
 		resets = <&bpmp TEGRA194_RESET_XUSB_PADCTL>;
 		reset-names = "padctl";
 		status = "disabled";
@@ -1728,13 +1726,32 @@
 			<0x0 0x03600000 0x0 0x10000>;
 		reg-names = "hcd", "fpci";
 
+#if 1
 		interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>,
 					<GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
-
+#else
+		interrupts-extended = <&intc GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>,
+				     <&intc GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>,
+				     <&tegra_pmc 76 IRQ_TYPE_LEVEL_HIGH>,
+				     <&tegra_pmc 77 IRQ_TYPE_LEVEL_HIGH>,
+				     <&tegra_pmc 78 IRQ_TYPE_LEVEL_HIGH>,
+				     <&tegra_pmc 79 IRQ_TYPE_LEVEL_HIGH>,
+				     <&tegra_pmc 80 IRQ_TYPE_LEVEL_HIGH>,
+				     <&tegra_pmc 81 IRQ_TYPE_LEVEL_HIGH>,
+				     <&tegra_pmc 82 IRQ_TYPE_LEVEL_HIGH>;
+		/*
+		wake0, wake1, wake2 are for USB3.0 ports
+		wake3, wake4, wake5, wake6 are for USB2.0 ports
+		*/
+		interrupt-names = "xhci", "mbox",
+				"wake0", "wake1", "wake2", "wake3",
+				"wake4", "wake5", "wake6";
+#endif
 		interconnects = <&mc TEGRA194_MEMORY_CLIENT_XUSB_HOSTR &emc>,
 				<&mc TEGRA194_MEMORY_CLIENT_XUSB_HOSTW &emc>;
 		interconnect-names = "dma-mem", "write";
 
+#if 1
 		clocks = <&bpmp TEGRA194_CLK_XUSB_CORE_HOST>,
 				 <&bpmp TEGRA194_CLK_XUSB_FALCON>,
 				 <&bpmp TEGRA194_CLK_XUSB_CORE_SS>,
@@ -1748,6 +1765,27 @@
 				      "xusb_ss", "xusb_ss_src", "xusb_hs_src",
 				      "xusb_fs_src", "pll_u_480m", "clk_m",
 				      "pll_e";
+#else
+		clocks = <&bpmp TEGRA194_CLK_XUSB_CORE_MUX>,
+			<&bpmp TEGRA194_CLK_XUSB_CORE_HOST>,
+			<&bpmp TEGRA194_CLK_XUSB_CORE_SS>,
+			<&bpmp TEGRA194_CLK_XUSB_FALCON>,
+			<&bpmp TEGRA194_CLK_XUSB_FALCON_HOST>,
+			<&bpmp TEGRA194_CLK_XUSB_FALCON_SS>,
+			<&bpmp TEGRA194_CLK_XUSB_FS>,
+			<&bpmp TEGRA194_CLK_XUSB_FS_HOST>,
+			<&bpmp TEGRA194_CLK_XUSB_SS>,
+			<&bpmp TEGRA194_CLK_XUSB_SS_SUPERSPEED>,
+			<&bpmp TEGRA194_CLK_UTMIPLL>,
+			<&bpmp TEGRA194_CLK_CLK_M>,
+			<&bpmp TEGRA194_CLK_PLLE>;
+		clock-names = "xusb_hs_src", "xusb_host",
+			"xusb_core_superspeed_clk", "xusb_falcon_src",
+			"xusb_falcon_host_clk", "xusb_falcon_superspeed_clk",
+			"xusb_fs_src", "xusb_fs_host_clk", "xusb_ss_src",
+			"xusb_ss", "pll_u_480m", "clk_m", "pll_e";
+
+#endif
 
 		power-domains =  <&bpmp TEGRA194_POWER_DOMAIN_XUSBC>,
 			<&bpmp TEGRA194_POWER_DOMAIN_XUSBA>;
@@ -1881,9 +1919,6 @@
 	psci {
 		compatible = "arm,psci-1.0";
 		method = "smc";
-		cpu_off = <0x84000002>;
-		cpu_on = <0xC4000003>;
-		cpu_suspend = <0xC4000001>;
 		status = "disabled";
 	};
 
@@ -1945,6 +1980,7 @@
 
 	nvpmodel {
 		compatible = "nvidia,nvpmodel";
+		nvidia,bpmp = <&bpmp>;
 		clocks = <&bpmp TEGRA194_CLK_EMC>,
 				<&bpmp TEGRA194_CLK_NAFLL_DLA>,
 				<&bpmp TEGRA194_CLK_NAFLL_DLA_FALCON>,

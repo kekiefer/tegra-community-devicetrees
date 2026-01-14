@@ -23,7 +23,7 @@
 	};
 
 	thermal-zones {
-		CPU-therm {
+		cpu-thermal {
 			trips {
 				trip_critical {
 					temperature = <91500>;
@@ -40,7 +40,7 @@
 			};
 		};
 
-		AUX-therm {
+		aux-thermal {
 			trips {
 				trip_critical {
 					temperature = <87500>;
@@ -57,7 +57,7 @@
 			};
 		};
 
-		GPU-therm {
+		gpu-thermal {
 			trips {
 				trip_critical {
 					temperature = <93500>;

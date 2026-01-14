@@ -20,23 +20,23 @@
 		bpmpthermal {
 			nvidia,therm-profile = <PROFILE_ID(1)>;
 		};
-	};
 
-	bpmp_i2c {
-		temp-sensor@4c {
-			loc {
-				/* set to maximum for not having local  shutdown */
-				shutdown-limit = <125>;
-			};
-			ext {
-				shutdown-limit = <117>;
+		i2c {
+			temp-sensor@4c {
+				loc {
+					/* set to maximum for not having local  shutdown */
+					shutdown-limit = <125>;
+				};
+				ext {
+					shutdown-limit = <117>;
+				};
 			};
 		};
 	};
 
 	thermal-zones {
 
-		CPU-therm {
+		cpu-thermal {
 			trips {
 				trip_critical {
 					temperature = <101500>;
@@ -53,7 +53,7 @@
 			};
 		};
 
-		AUX-therm {
+		aux-thermal {
 			trips {
 				trip_critical {
 					temperature = <98000>;
@@ -88,7 +88,7 @@
 			};
 		};
 
-		GPU-therm {
+		gpu-thermal {
 			trips {
 				trip_critical {
 					temperature = <103500>;

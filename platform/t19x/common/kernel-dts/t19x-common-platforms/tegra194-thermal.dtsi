@@ -19,7 +19,6 @@
 #include <dt-bindings/thermal/thermal.h>
 #include "tegra194-balanced-throttle.dtsi"
 #include "tegra194-pwm-fan.dtsi"
-#include "tegra194-thermal-fan-est.dtsi"
 /* THERMAL gpio definitions */
 #define TEMP_ALERT TEGRA194_MAIN_GPIO(H, 2)
 
@@ -30,33 +29,22 @@
 		};
 	};
 
-	bpmp { i2c {
-		tegra_tmp451: temp-sensor@4c {
-			status = "okay";
-			#thermal-sensor-cells = <1>;
-			compatible = "ti,tmp451";
-			reg = <0x4c>;
-			sensor-name = "tmp451-ext";
-			supported-hwrev = <1>;
-			offset = <(-38)>;
-			conv-rate = <0x06>;
-			extended-rage = <1>;
+	bpmp {
+		i2c {
+			tegra_tmp451: temp-sensor@4c {
+				compatible = "ti,tmp451";
+				reg = <0x4c>;
+				status = "okay";
 
-			interrupt-parent = <&tegra_main_gpio>;
-			interrupts = <TEMP_ALERT IRQ_TYPE_LEVEL_LOW>;
-			temp-alert-gpio = <&tegra_main_gpio TEMP_ALERT 0>;
+				interrupt-parent = <&tegra_main_gpio>;
+				interrupts = <TEMP_ALERT IRQ_TYPE_EDGE_FALLING>;
 
-			/* vdd-supply configured in power tree */
+				vcc-supply = <&p2888_spmic_sd2>;
 
-			loc {
-				/* set to maximum for not having local  shutdown */
-				shutdown-limit = <107>;
-			};
-			ext {
-				shutdown-limit = <109>;
+				#thermal-sensor-cells = <1>;
 			};
 		};
-	}; };
+	};
 
 	cpus {
 		cpu@0 {
@@ -79,21 +67,7 @@
 	thermal-zones {
 		status = "okay";
 
-		Tboard_tegra: Tboard_tegra {
-			status = "okay";
-			polling-delay = <0>;
-			polling-delay-passive = <1000>;
-			thermal-sensors = <&tegra_tmp451 0>;
-		};
-
-		Tdiode_tegra: Tdiode_tegra {
-			status = "okay";
-			polling-delay = <0>;
-			polling-delay-passive = <1000>;
-			thermal-sensors = <&tegra_tmp451 1>;
-		};
-
-		CPU-therm {
+		cpu-thermal {
 			status = "okay";
 			polling-delay-passive = <500>;
 
@@ -102,7 +76,7 @@
 			};
 
 			trips {
-				trip_critical {
+				cpu_sw_shutdown: cpu-sw-shutdown {
 					temperature = <95500>;
 					type = "critical";
 					hysteresis = <0>;
@@ -119,7 +93,7 @@
 				cpu_hot_surface: cpu-hot-surface {
 					temperature = <70000>;
 					hysteresis = <8000>;
-					type = "active";
+					type = "passive";
 				};
 			};
 
@@ -147,7 +121,7 @@
 			};
 		};
 
-		AUX-therm {
+		aux-thermal {
 			status = "okay";
 			polling-delay-passive = <500>;
 
@@ -173,7 +147,7 @@
 				aux_hot_surface: aux-hot-surface {
 					temperature = <70000>;
 					hysteresis = <8000>;
-					type = "active";
+					type = "passive";
 				};
 			};
 
@@ -201,7 +175,7 @@
 			};
 		};
 
-		GPU-therm {
+		gpu-thermal {
 			status = "okay";
 			polling-delay-passive = <500>;
 
@@ -210,7 +184,7 @@
 			};
 
 			trips {
-				trip_critical {
+				gpu_sw_shutdown: gpu-sw-shutdown {
 					temperature = <98000>;
 					type = "critical";
 					hysteresis = <0>;
@@ -227,7 +201,7 @@
 				gpu_hot_surface: gpu-hot-surface {
 					temperature = <70000>;
 					hysteresis = <8000>;
-					type = "active";
+					type = "passive";
 				};
 			};
 
@@ -255,7 +229,7 @@
 			};
 		};
 
-		AO-therm {
+		ao-thermal {
 			status = "okay";
 
 			thermal-zone-params {
@@ -272,7 +246,7 @@
 			};
 			cooling-maps {
 				map0 {
-					trip = <&{/thermal-zones/AO-therm/trips/trip_dram_refresh}>;
+					trip = <&{/thermal-zones/ao-thermal/trips/trip_dram_refresh}>;
 					cdev-type = "bwmgr-therm-handler";
 					cooling-device = <&bwmgr THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
 				};

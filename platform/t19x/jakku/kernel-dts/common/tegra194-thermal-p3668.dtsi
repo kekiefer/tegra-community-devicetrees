@@ -21,7 +21,7 @@
 	thermal-zones {
 		/delete-node/ Tboard_tegra;
 		/delete-node/ Tdiode_tegra;
-		CPU-therm {
+		cpu-thermal {
 			trips {
 				trip_critical {
 					temperature = <96000>;
@@ -31,7 +31,7 @@
 				};
 			};
 		};
-		GPU-therm {
+		gpu-thermal {
 			trips {
 				trip_critical {
 					temperature = <97000>;
@@ -59,7 +59,7 @@
 				};
 			};
 		};
-		AUX-therm {
+		aux-thermal {
 			trips {
 				trip_critical {
 					temperature = <95500>;
@@ -87,7 +87,7 @@
 				};
 			};
 		};
-		AO-therm {
+		ao-thermal {
 			trips {
 				trip_dram_refresh {
 					temperature = <85000>;
