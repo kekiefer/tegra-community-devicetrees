@@ -23,6 +23,12 @@
 
 &head0 {
 	status = "okay";
+	nvidia,dc-connector = <&sor2>; // nvdisp-init only
+	nvidia,dc-flags = <0x1>; // nvdisp-init only
+	nvidia,fb-win = <0>; // nvdisp-init only
+	avdd_hdmi-supply = <&p2888_spmic_sd0>; /* 1v0 */ // nvdisp-init only
+	avdd_hdmi_pll-supply = <&p2888_spmic_sd1>; /* 1v8 */ // nvdisp-init only
+	vdd_hdmi_5v0-supply = <&e3900_vdd_5v0_hdmi_cvb>; /* 5v0 */ // nvdisp-init only
 };
 
 &sor2 {

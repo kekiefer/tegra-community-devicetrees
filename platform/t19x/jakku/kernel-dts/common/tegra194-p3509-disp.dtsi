@@ -24,10 +24,24 @@
 
 &head0 {
 	status = "okay";
+	nvidia,dc-connector = <&sor1>; // nvdisp-init only
+	nvidia,dc-flags = <0x1>; // nvdisp-init only
+	nvidia,fb-win = <0>; // nvdisp-init only
+	avdd_hdmi-supply = <&p3668_spmic_sd0>; /* 1v0 */ // nvdisp-init only
+	avdd_hdmi_pll-supply = <&p3668_spmic_sd1>; /* 1v8 */ // nvdisp-init only
+	vdd_hdmi_5v0-supply = <&p3509_vdd_hdmi_5v0>; /* 5v0 */ // nvdisp-init only
 };
 
 &head1 {
 	status = "okay";
+	nvidia,dc-connector = <&sor0>; // nvdisp-init only
+	nvidia,dc-flags = <0x1>; // nvdisp-init only
+	nvidia,fb-win = <3>; // nvdisp-init only
+	vdd-dp-pwr-supply = <&p3668_spmic_sd0>; // nvdisp-init only
+	avdd-dp-pll-supply = <&p3668_spmic_sd1>; // nvdisp-init only
+	vdd-edp-sec-mode-supply = <&battery_reg>; // nvdisp-init only
+	vdd-dp-pad-supply = <&battery_reg>; // nvdisp-init only
+	vdd_hdmi_5v0-supply = <&p3509_vdd_hdmi_5v0>; // nvdisp-init only
 };
 
 &sor0 {

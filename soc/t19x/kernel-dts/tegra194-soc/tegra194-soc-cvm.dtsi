@@ -20,6 +20,7 @@
  */
 
 #include <tegra194-soc/tegra194-soc-base.dtsi>
+#include <tegra194-soc/tegra194-nvdisp-compat.dtsi>
 #include <tegra194-soc/tegra194-cpus.dtsi>
 #include <tegra194-soc/mods-simple-bus.dtsi>
 #include <tegra194-soc/tegra194-soc-prod.dtsi>
