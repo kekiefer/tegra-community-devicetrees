@@ -37,22 +37,13 @@
 		pwm_gpio = <&tegra_aon_gpio TEGRA194_AON_GPIO(CC, 4) GPIO_ACTIVE_LOW>;
 	};
 
-	pwm-fan {
+	fan: pwm-fan {
 		compatible = "pwm-fan";
 		status = "okay";
 		#pwm-cells = <1>;
 		pwms = <&tegra_pwm4 0 45334>;
-		shared_data = <&pwm_fan_shared_data>;
-		profiles {
-			default = "quiet";
-			quiet {
-				state_cap = <4>;
-				cooling-levels = <255 178 135 95 0 0 0 0 0 0>;
-			};
-			cool {
-				state_cap = <4>;
-				cooling-levels = <255 178 135 95 0 0 0 0 0 0>;
-			};
-		};
+
+		#cooling-cells = <2>;
+		cooling-levels = <0 77 120 160 255 255>; // values derived from 'quiet' profile from nvfancontrol
 	};
 };

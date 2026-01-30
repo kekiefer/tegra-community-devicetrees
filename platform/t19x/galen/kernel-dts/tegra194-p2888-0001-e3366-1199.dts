@@ -109,10 +109,6 @@
 		status = "disabled";
 	};
 
-	thermal-zones {
-		status = "disabled";
-	};
-
 	interrupt-controller {
 		status = "disabled";
 	};
